@@ -42,6 +42,10 @@ func ProductFaker(db *gorm.DB) *models.Product {
 
 }
 
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 func fakePrice() float64 {
 	return precision(rand.Float64()*math.Pow10(rand.Intn(8)), rand.Intn(2)+1)
 }
